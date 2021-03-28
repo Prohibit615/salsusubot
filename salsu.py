@@ -3,10 +3,9 @@ import asyncio
 import youtube_dl
 import datetime
 import pytz
+import os
 
 client = discord.Client()
-
-token = "ODI0NTgzOTcxNDE2ODM0MDc4.YFxfqg.hD1duYu_EAT_Bv9UoQTZpjL1vmY"
 
 
 @client.event
@@ -67,5 +66,5 @@ async def on_message(message):
     embed.add_field(name="사유", value=reason, inline=False)
     await message.channel.send(embed=embed)  # 살생부등록
 
-
-client.run(token)
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
